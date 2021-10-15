@@ -1,12 +1,13 @@
 const shareButton = document.querySelector("button");
 
+const textareaText = document.querySelector("textarea");
+
 shareButton.addEventListener("click", () => {
   if (navigator.share) {
     navigator
       .share({
         title: "Web Share API",
-        text: "Sent with the Web Share API",
-        url: "https://github.com/douglasgomes98/poc-share-api",
+        text: textareaText.value,
       })
       .then(() => {
         console.log("Shared successfully.");
